@@ -16,7 +16,7 @@ void main()
     //In order to accomplish a barrel distortion, implement the following equations:
     //scale and translate the texture coordinate such that it is in the range [-1.0, 1.0]
     //multiply by 2, then subtract 1
-    vec2 newcoord = (texcoord * 2) - 1;
+    vec2 newcoord = (texcoord * 2.0) - 1.0;
     
     //calculate 𝜽 = arctan(texture_coordinate_y, texture_coordinate_x)
     float theta = atan(newcoord.y, newcoord.x);
@@ -27,7 +27,7 @@ void main()
     //calculate final texture coordinate = (radius * cos(𝜽),  radius * sin(𝜽))
     vec2 fish_eye_coord = vec2(radius * cos(theta), radius * sin(theta));
     
-    fish_eye_coord = (fish_eye_coord + 1.0) / 2;
+    fish_eye_coord = (fish_eye_coord + 1.0) / 2.0;
     
     FragColor = texture(image, fish_eye_coord);
 }
