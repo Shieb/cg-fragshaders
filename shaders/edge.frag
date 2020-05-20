@@ -19,14 +19,14 @@ void main()
     
     //Compute horizontal gradient as follows:
     //sobel_h = bottom_right + (2.0 * center_right) + top_right - bottom_left - (2.0 * center_left) - top_left
-    vec2 bottom_right = vec2(w, -h);
-    vec2 top_right = vec2(w, h);
-    vec2 bottom_left = vec2(-w, -h);
-    vec2 top_left = vec2(-w, h);
-    vec2 center_right = vec2(w, 0.0);
-    vec2 center_left = vec2(-w, 0.0);
-    vec2 bottom_center = vec2(0.0, -h);
-    vec2 top_center = vec2(0.0, h); 
+    vec3 top_left = texture(image, vec2(texcoord.x - 1.0/width, texcoord.y + 1.0/height)).rgb;
+	vec3 top_center = texture(image, vec2(texcoord.x, texcoord.y + 1.0/height)).rgb;
+	vec3 top_right = texture(image, vec2(texcoord.x + 1.0/width, texcoord.y + 1.0/height)).rgb;
+	vec3 center_left = texture(image, vec2(texcoord.x - 1.0/width, texcoord.y)).rgb;
+	vec3 center_right = texture(image, vec2(texcoord.x + 1.0/width, texcoord.y)).rgb;
+	vec3 bottom_left = texture(image, vec2(texcoord.x - 1.0/width, texcoord.y - 1.0/height)).rgb;
+	vec3 bottom_center = texture(image, vec2(texcoord.x, texcoord.y - 1.0/height)).rgb;
+	vec3 bottom_right = texture(image, vec2(texcoord.x + 1.0/width, texcoord.y - 1.0/height)).rgb;
     vec2 sobel_horizontal = (bottom_right + (2.0 * center_right) + top_right - bottom_left - (2.0 * center_left) - top_left); 
     
     //Compute vertical gradient as follows:
