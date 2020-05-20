@@ -25,7 +25,7 @@ void main()
     float radius = pow(length(newcoord), 1.5);
     
     //calculate final texture coordinate = (radius * cos(𝜽),  radius * sin(𝜽))
-    vec2 fish_eye_coord = vec2(radius* cos(theta), radius * sin(theta));
+    vec2 fish_eye_coord = vec2(radius * cos(theta), radius * sin(theta));
     
     fish_eye_coord = (fish_eye_coord + 1.0) / 2;
     
