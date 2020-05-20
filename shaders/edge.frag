@@ -20,13 +20,13 @@ void main()
     //Compute horizontal gradient as follows:
     //sobel_h = bottom_right + (2.0 * center_right) + top_right - bottom_left - (2.0 * center_left) - top_left
     vec3 top_left = texture(image, vec2(texcoord.x - 1.0/width, texcoord.y + 1.0/height)).rgb;
-	vec3 top_center = texture(image, vec2(texcoord.x, texcoord.y + 1.0/height)).rgb;
-	vec3 top_right = texture(image, vec2(texcoord.x + 1.0/width, texcoord.y + 1.0/height)).rgb;
-	vec3 center_left = texture(image, vec2(texcoord.x - 1.0/width, texcoord.y)).rgb;
-	vec3 center_right = texture(image, vec2(texcoord.x + 1.0/width, texcoord.y)).rgb;
-	vec3 bottom_left = texture(image, vec2(texcoord.x - 1.0/width, texcoord.y - 1.0/height)).rgb;
-	vec3 bottom_center = texture(image, vec2(texcoord.x, texcoord.y - 1.0/height)).rgb;
-	vec3 bottom_right = texture(image, vec2(texcoord.x + 1.0/width, texcoord.y - 1.0/height)).rgb;
+    vec3 top_center = texture(image, vec2(texcoord.x, texcoord.y + 1.0/height)).rgb;
+    vec3 top_right = texture(image, vec2(texcoord.x + 1.0/width, texcoord.y + 1.0/height)).rgb;
+    vec3 center_left = texture(image, vec2(texcoord.x - 1.0/width, texcoord.y)).rgb;
+    vec3 center_right = texture(image, vec2(texcoord.x + 1.0/width, texcoord.y)).rgb;
+    vec3 bottom_left = texture(image, vec2(texcoord.x - 1.0/width, texcoord.y - 1.0/height)).rgb;
+    vec3 bottom_center = texture(image, vec2(texcoord.x, texcoord.y - 1.0/height)).rgb;
+    vec3 bottom_right = texture(image, vec2(texcoord.x + 1.0/width, texcoord.y - 1.0/height)).rgb;
     vec2 sobel_horizontal = (bottom_right + (2.0 * center_right) + top_right - bottom_left - (2.0 * center_left) - top_left); 
     
     //Compute vertical gradient as follows:
